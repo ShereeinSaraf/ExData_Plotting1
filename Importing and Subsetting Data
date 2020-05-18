@@ -1,0 +1,12 @@
+household_power_consumption <- read.csv("~/Downloads/household_power_consumption.txt", sep=";")
+View(household_power_consumption)
+
+hpc_subset <- subset(household_power_consumption, household_power_consumption$Date == "1/2/2007"|household_power_consumption$Date == "2/2/2007")
+hpc_subset$Date <- as.Date(hpc_subset$Date, format = "%d/%m/%Y")
+hpc_subset$DateTime <- as.POSIXct(paste(hpc_subset$Date,hpc_subset$Time))
+Global_active_power <- as.numeric(hpc_subset$Global_active_power)
+Sub_metering_1 <- as.numeric(hpc_subset$Sub_metering_1)
+Sub_metering_2 <- as.numeric(hpc_subset$Sub_metering_2)
+Sub_metering_3 <- as.numeric(hpc_subset$Sub_metering_3)
+Voltage <- as.numeric(hpc_subset$Voltage)
+Global_reactive_power <- as.numeric(hpc_subset$Global_reactive_power)
