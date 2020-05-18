@@ -1,0 +1,10 @@
+png(filename = "plot3.png", height = 480, width = 480)
+
+plot(hpc_subset$DateTime, hpc_subset$Sub_metering_1, type="l", ylab="Energy sub metering", xlab="", yaxt = "n")
+lines(hpc_subset$DateTime, hpc_subset$Sub_metering_2, type="l", col="red")
+lines(hpc_subset$DateTime, hpc_subset$Sub_metering_3, type="l", col="blue")
+legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, lwd=2.5, col=c("black", "red", "blue"))
+
+axis(2, at= c(5,10,15,20,25,30,35), labels = c(" ",10," ",20," ",30," "))
+
+dev.off()
